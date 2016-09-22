@@ -3,7 +3,7 @@
 FROM golang
 
 # Copy the local package files to the container's workspace.
-ADD . /go/src
+ADD . /go/src/servertime
 
 # Build the servertime command inside the container
 # (You may fetch or manage dependencies here,
@@ -11,7 +11,7 @@ ADD . /go/src
 RUN go install servertime
 
 # Run the servertime command by default when the container starts.
-ENTRYPOINT /go/bin/main
+ENTRYPOINT /go/bin/servertime
 
 # Document that the service listens on port 8080.
 EXPOSE 8080
